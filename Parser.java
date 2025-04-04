@@ -29,7 +29,7 @@ public class Parser
         commands = new CommandWords();
         reader = new Scanner(System.in);
     }
-
+    
     /**
      * @return The next command from the user.
      */
@@ -66,8 +66,8 @@ public class Parser
     /**
      * Print out a list of valid command words.
      */
-    public void showCommands()
+    public String showCommands()
     {
-        commands.showAll();
+        return commands.showAll();
     }
 }

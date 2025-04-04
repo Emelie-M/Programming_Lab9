@@ -19,6 +19,7 @@ public class Game
 {
     private Parser parser;
     private Room currentRoom;
+    private RoomItem currentItem;
         
     /**
      * Create the game and initialise its internal map.
@@ -28,13 +29,14 @@ public class Game
         createRooms();
         parser = new Parser();
     }
-
+    
     /**
      * Create all the rooms and link their exits together.
      */
     private void createRooms()
     {
         Room outside, theater, pub, lab, office;
+        
       
         // create the rooms
         outside = new Room("outside the main entrance of the university");
@@ -42,6 +44,7 @@ public class Game
         pub = new Room("in the campus pub");
         lab = new Room("in a computing lab");
         office = new Room("in the computing admin office");
+        
         
         // initialise room exits
         outside.setExit("east", theater);
@@ -57,6 +60,14 @@ public class Game
 
         office.setExit("west", lab);
 
+        //ITems
+        /*outside.setItem("Umbrella", "0.5kg");
+        theater.setItem("Novel", "0.2kg");
+        pub.setItem("beer", "0.3kg");
+        lab.setItem("chemical bottle", "1kg");
+        office.setItem("tie","0.3kg");
+        
+        currentItem = outside;*/
         currentRoom = outside;  // start game outside
     }
 
@@ -132,7 +143,8 @@ public class Game
         System.out.println("around at the university.");
         System.out.println();
         System.out.println("Your command words are:");
-        parser.showCommands();
+        System.out.println(parser.showCommands());
+        
     }
 
     /** 

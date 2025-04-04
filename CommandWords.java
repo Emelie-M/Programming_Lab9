@@ -41,11 +41,12 @@ public class CommandWords
     /**
      * Print all valid commands to System.out.
      */
-    public void showAll() 
+    public String showAll() 
     {
+        String allCommands = " ";
         for(String command: validCommands) {
-            System.out.print(command + "  ");
+            allCommands += (" " + command);
         }
-        System.out.println();
+        return allCommands;
     }
 }
