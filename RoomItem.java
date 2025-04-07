@@ -26,16 +26,11 @@ public class RoomItem
         items.put(description, weight);        
     }
     
-    public String getItem(String description) 
-    {
-        return items.get(description);
-    }
-    
         private String getItemString()
     {
         String returnString = "Items:";
         Set<String> keys = items.keySet();
-        for(String description : keys) {
+        for(String description  : keys) {
             returnString += " " + description;
         }
         return returnString;
@@ -49,5 +44,10 @@ public class RoomItem
     public String getLongDescription()
     {
         return "The item is " + description + ".\n" + getItemString();
+    }
+    
+        public String getItem(String direction) 
+    {
+        return items.get(direction);
     }
 }

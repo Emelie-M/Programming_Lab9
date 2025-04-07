@@ -27,6 +27,7 @@ public class Game
     public Game() 
     {
         createRooms();
+        createItems();
         parser = new Parser();
     }
     
@@ -60,17 +61,32 @@ public class Game
 
         office.setExit("west", lab);
 
+        currentRoom = outside;  // start game outside
+    }
+
+    //question 20
+    private void createItems()
+    {
+        RoomItem outside, theater, pub, lab, office;
+        
+      
+        // create the rooms
+        outside = new RoomItem("Umbrella found in this room");
+        theater = new RoomItem("Novel found in this room");
+        pub = new RoomItem("beer found in this room");
+        lab = new RoomItem("Suspicious chemical bottle found in this room");
+        office = new RoomItem("Tie found in this room");
+
         //ITems
-        /*outside.setItem("Umbrella", "0.5kg");
+        outside.setItem("Umbrella", "0.5kg");
         theater.setItem("Novel", "0.2kg");
         pub.setItem("beer", "0.3kg");
         lab.setItem("chemical bottle", "1kg");
         office.setItem("tie","0.3kg");
         
-        currentItem = outside;*/
-        currentRoom = outside;  // start game outside
+        currentItem = outside;
     }
-
+    
     /**
      *  Main play routine.  Loops until end of play.
      */
@@ -100,6 +116,7 @@ public class Game
         System.out.println("Type 'help' if you need help.");
         System.out.println();
         System.out.println(currentRoom.getLongDescription());
+        System.out.println(currentItem.getLongDescription());
     }
 
     /**
